@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>Color Flipper</title>
 </head>
 <body>
@@ -15,10 +17,35 @@
 
     <main>
         <div class="container">
-            <h1>Background Color: White</h1>
+            <h1>Background Color : <span class="color">#FFF</span></h1>
         </div>
         <button id="btn">Click Me!</button>
     </main>
+
+
+    <script>
+        const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B','C', 'D', 'E', 'F'];
+        const button = document.getElementById('btn');
+        const hexCode = document.querySelector('.color');
+
+        function changeColor(){   
+            let value = '#';
+            for(let i = 0; i < 6; i++){
+                value += values[getRandom()]; 
+            }
+            hexCode.textContent = value;
+            document.body.style.backgroundColor = value;
+            
+        } 
+
+        function getRandom(){
+            return Math.floor(Math.random() * values.length);
+        }
+
+
+
+        button.addEventListener('mouseup', changeColor);
+    </script>
     
 </body>
 </html>
